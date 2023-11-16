@@ -1791,9 +1791,39 @@ dbl (1): cast_vote_record
 <p>##Create totals by county for different vote choices.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudG90YWxzIDwtIGFsbF9nb3Zfdm90ZXMgfD4gIGlubmVyX2pvaW4oZGVtX3RpY2tldCkgfD4gaW5uZXJfam9pbihnb3BfdGlja2V0KSB8PiBpbm5lcl9qb2luKGdvcF9tb29yZSkgfD4gaW5uZXJfam9pbihtZylcblxuYGBgIn0= -->
-<pre class="r"><code>totals &lt;- all_gov_votes |&gt;  inner_join(dem_ticket) |&gt; inner_join(gop_ticket) |&gt; inner_join(gop_moore) |&gt; inner_join(mg)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBBbGwgYmFsbG90cyB3aGVyZSBhIHZvdGVyIG1hZGUgYSBjaG9pY2UgaW4gdGhlIGdvdmVybm9yJ3MgcmFjZVxuYWxsX2dvdl92b3RlcyA8LSBhbGxfdm90ZXMgfD4gXG4gIGZpbHRlcighaXMubmEoZ292KSkgfD4gXG4gIGdyb3VwX2J5KGNvdW50eSkgfD4gXG4gIHN1bW1hcmlzZShhbGxfZ292ID0gbigpKVxuXG4jIEFsbCBiYWxsb3RzIHdoZXJlIGEgdm90ZXIgY2hvc2UgdGhlIERlbW9jcmF0aWMgY2FuZGlkYXRlIGZvciB0aGUgZm91ciBzdGF0ZXdpZGUgb2ZmaWNlcyBhbmQgSG91c2UgcmFjZVxuZGVtX3RpY2tldCA8LSBhbGxfdm90ZXMgfD4gXG4gIGZpbHRlcihnb3YgPT0gJ01vb3JlLU1pbGxlciAoMTAwMDUwMDUuMDAwOTE2MCknLCBjb21wdHJvbGxlciA9PSAnQnJvb2tlIEVsaXphYmV0aCBMaWVybWFuICgxMDA2NDA2NC4wMDA0MjIwKScsIGFnID09ICdBbnRob255IEcuIEJyb3duICgxMDA1NDA1NC4wMDAwODYwKScsIHNlbmF0ZSA9PSAnQ2hyaXMgVmFuIEhvbGxlbiAoMTAwNDMwNDMuMDAwMTMwMCknLCBjb25ncmVzcyA9PSAnRGF2aWQgSi4gVHJvbmUgKDEwMjEzMjEzLjAwMDUwMjApJykgfD4gXG4gIGdyb3VwX2J5KGNvdW50eSkgfD4gXG4gIHN1bW1hcmlzZShkZW1fc3RyYWlnaHRfdGlja2V0ID0gbigpKVxuXG4jIEFsbCBiYWxsb3RzIHdoZXJlIGEgdm90ZXIgY2hvc2UgdGhlIFJlcHVibGljYW4gY2FuZGlkYXRlIGZvciB0aGUgZm91ciBzdGF0ZXdpZGUgb2ZmaWNlcyBhbmQgSG91c2UgcmFjZVxuZ29wX3RpY2tldCA8LSBhbGxfdm90ZXMgfD4gXG4gIGZpbHRlcihnb3YgPT0gJ0NveC1TY2hpZmFuZWxsaSAoMTAwMDUwMDUuMDAwMjc2MCknLCBjb21wdHJvbGxlciA9PSAnQmFycnkgR2xhc3NtYW4gKDEwMDY0MDY0LjAwMDA5NzApJywgYWcgPT0gJ01pY2hhZWwgQW50aG9ueSBQZXJvdXRrYSAoMTAwNTQwNTQuMDAwNDU4MCknLCBzZW5hdGUgPT0gJ0NocmlzIENoYWZmZWUgKDEwMDQzMDQzLjAwMDM1MjApJywgY29uZ3Jlc3MgPT0gJ05laWwgQy4gUGFycm90dCAoMTAyMTMyMTMuMDAwMjk2MCknKSB8PiBcbiAgZ3JvdXBfYnkoY291bnR5KSB8PiBcbiAgc3VtbWFyaXNlKGdvcF9zdHJhaWdodF90aWNrZXQgPSBuKCkpXG5cbiMgQWxsIGJhbGxvdHMgd2hlcmUgYSB2b3RlciBjaG9zZSB0aGUgRGVtb2NyYXRpYyBjYW5kaWRhdGUgZm9yIGdvdmVybm9yIGFuZCB0aGUgR09QIGNhbmRpZGF0ZXMgZm9yIHRoZSBvdGhlciBzdGF0ZXdpZGUgb2ZmaWNlcyBhbmQgSG91c2UgcmFjZVxuZ29wX21vb3JlIDwtIGFsbF92b3RlcyB8PiBcbiAgZmlsdGVyKGdvdiA9PSAnTW9vcmUtTWlsbGVyICgxMDAwNTAwNS4wMDA5MTYwKScsIGNvbXB0cm9sbGVyID09ICdCYXJyeSBHbGFzc21hbiAoMTAwNjQwNjQuMDAwMDk3MCknLCBhZyA9PSAnTWljaGFlbCBBbnRob255IFBlcm91dGthICgxMDA1NDA1NC4wMDA0NTgwKScsIHNlbmF0ZSA9PSAnQ2hyaXMgQ2hhZmZlZSAoMTAwNDMwNDMuMDAwMzUyMCknLCBjb25ncmVzcyA9PSAnTmVpbCBDLiBQYXJyb3R0ICgxMDIxMzIxMy4wMDAyOTYwKScpIHw+IFxuICBncm91cF9ieShjb3VudHkpIHw+IFxuICBzdW1tYXJpc2UoZ29wX21vb3JlID0gbigpKVxuXG4jIEFsbCBiYWxsb3RzIHdoZXJlIGEgdm90ZXIgY2hvc2UgdGhlIERlbW9jcmF0aWMgY2FuZGlkYXRlIGZvciBnb3Zlcm5vciBhbmQgdGhlIEdPUCBjYW5kaWRhdGUgZm9yIGNvbXB0cm9sbGVyXG5tZyA8LSBhbGxfdm90ZXMgfD4gXG4gIGZpbHRlcihnb3YgPT0gJ01vb3JlLU1pbGxlciAoMTAwMDUwMDUuMDAwOTE2MCknLCBjb21wdHJvbGxlciA9PSAnQmFycnkgR2xhc3NtYW4gKDEwMDY0MDY0LjAwMDA5NzApJykgfD4gXG4gIGdyb3VwX2J5KGNvdW50eSkgfD4gXG4gIHN1bW1hcmlzZShtb29yZV9nbGFzc21hbiA9IG4oKSlcblxuIyBKb2luaW5nIHRob3NlIHRvZ2V0aGVyXG50b3RhbHMgPC0gYWxsX2dvdl92b3RlcyB8PiAgaW5uZXJfam9pbihkZW1fdGlja2V0KSB8PiBpbm5lcl9qb2luKGdvcF90aWNrZXQpIHw+IGlubmVyX2pvaW4oZ29wX21vb3JlKSB8PiBpbm5lcl9qb2luKG1nKVxuYGBgIn0= -->
+<pre class="r"><code># All ballots where a voter made a choice in the governor&#39;s race
+all_gov_votes &lt;- all_votes |&gt; 
+  filter(!is.na(gov)) |&gt; 
+  group_by(county) |&gt; 
+  summarise(all_gov = n())
+
+# All ballots where a voter chose the Democratic candidate for the four statewide offices and House race
+dem_ticket &lt;- all_votes |&gt; 
+  filter(gov == &#39;Moore-Miller (10005005.0009160)&#39;, comptroller == &#39;Brooke Elizabeth Lierman (10064064.0004220)&#39;, ag == &#39;Anthony G. Brown (10054054.0000860)&#39;, senate == &#39;Chris Van Hollen (10043043.0001300)&#39;, congress == &#39;David J. Trone (10213213.0005020)&#39;) |&gt; 
+  group_by(county) |&gt; 
+  summarise(dem_straight_ticket = n())
+
+# All ballots where a voter chose the Republican candidate for the four statewide offices and House race
+gop_ticket &lt;- all_votes |&gt; 
+  filter(gov == &#39;Cox-Schifanelli (10005005.0002760)&#39;, comptroller == &#39;Barry Glassman (10064064.0000970)&#39;, ag == &#39;Michael Anthony Peroutka (10054054.0004580)&#39;, senate == &#39;Chris Chaffee (10043043.0003520)&#39;, congress == &#39;Neil C. Parrott (10213213.0002960)&#39;) |&gt; 
+  group_by(county) |&gt; 
+  summarise(gop_straight_ticket = n())
+
+# All ballots where a voter chose the Democratic candidate for governor and the GOP candidates for the other statewide offices and House race
+gop_moore &lt;- all_votes |&gt; 
+  filter(gov == &#39;Moore-Miller (10005005.0009160)&#39;, comptroller == &#39;Barry Glassman (10064064.0000970)&#39;, ag == &#39;Michael Anthony Peroutka (10054054.0004580)&#39;, senate == &#39;Chris Chaffee (10043043.0003520)&#39;, congress == &#39;Neil C. Parrott (10213213.0002960)&#39;) |&gt; 
+  group_by(county) |&gt; 
+  summarise(gop_moore = n())
+
+# All ballots where a voter chose the Democratic candidate for governor and the GOP candidate for comptroller
+mg &lt;- all_votes |&gt; 
+  filter(gov == &#39;Moore-Miller (10005005.0009160)&#39;, comptroller == &#39;Barry Glassman (10064064.0000970)&#39;) |&gt; 
+  group_by(county) |&gt; 
+  summarise(moore_glassman = n())
+
+# Joining those together
+totals &lt;- all_gov_votes |&gt;  inner_join(dem_ticket) |&gt; inner_join(gop_ticket) |&gt; inner_join(gop_moore) |&gt; inner_join(mg)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiSm9pbmluZyB3aXRoIGBieSA9IGpvaW5fYnkoY291bnR5KWBKb2luaW5nIHdpdGggYGJ5ID0gam9pbl9ieShjb3VudHkpYEpvaW5pbmcgd2l0aCBgYnkgPSBqb2luX2J5KGNvdW50eSlgSm9pbmluZyB3aXRoIGBieSA9IGpvaW5fYnkoY291bnR5KWBcbiJ9 -->
 <pre><code>Joining with `by = join_by(county)`Joining with `by = join_by(county)`Joining with `by = join_by(county)`Joining with `by = join_by(county)`</code></pre>
